@@ -1,0 +1,365 @@
+﻿
+@model OptoEyeCare.Models.OrderHistory
+<script src="~/Assets/js/SomeeAdsRemover.js"></script>
+<div class="modal-dialog" role="document" style="max-width: 65%">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="app-content content contentStyle">
+                <div class="content-wrapper">
+                    <div class="content-body">
+                        <!-- Active Orders -->
+                        <div class="row">
+                            <div class="col-md-12">                              
+                                        <fieldset class="scheduler-border">
+                                            <legend class="scheduler-border" style="font-size: 14px;font-weight: bold;">Personal Information</legend>
+                                            <div class="form-body">
+                                                <div class="row" style="margin-bottom: -15px;">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Customer ID : </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2" style="margin-left: -51px;">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.customerId)</label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row" style="margin-bottom: -15px;">                                                  
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Name :</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.title)&nbsp;@Html.DisplayFor(model => model.name)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Mobile No. :</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.mobno)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Email Address :</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.email)</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row" style="margin-bottom: -18px;">                                                
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Address :</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.address)</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>                                                      
+
+                                @*<div class="card" id="DivLense" style="margin-top: 14px;">*@
+                                    @*<div class="card-body">*@
+                                        <fieldset class="scheduler-border">
+                                            <legend class="scheduler-border">@Html.DisplayFor(model => model.entryType)</legend>
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Order Date</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.orderDate)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Delivery Date</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.DeliveryDate)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Delivered On</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.DeliveredOn)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Ref No.</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.RefNo)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Examined By</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.Examinedy)</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    @*Right eye div start*@
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <div class="card bg-light mb-3">
+
+                                                                <div class="row" style="margin: 0px !important;margin-bottom: -19px !important;margin-top: 7px !important;">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2" style="color:black;font-weight:bold">Right Eye</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">SPH</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">CYL</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">Axis</label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row" style="margin: 0px !important;margin-bottom: -15px !important">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">Distance</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.rightDistanceSPH)</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.rightDistanceCYL)</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.rightDistanceAxis)</label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row" style="margin: 0px !important;">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">Addition</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.rightAddition)</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3" style="text-align: right;">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">Vision</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.vision)</label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*Right eye div end*@
+
+                                                    @*============================================================================================================*@
+                                                    @*Left eye div start*@
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <div class="card bg-light mb-3">
+
+                                                                <div class="row" style="margin: 0px !important;margin-bottom: -19px !important;margin-top: 7px !important;">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2" style="color:black;font-weight:bold">Left Eye</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">SPH</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">CYL</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">Axis</label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row" style="margin: 0px !important;margin-bottom: -15px !important">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">Distance</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.leftDistanceSPH)</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.leftDistanceCYL)</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.leftDistanceAxis)</label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row" style="margin: 0px !important;">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">Addition</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.leftAddition)</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3" style="text-align: right;">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">Vision</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label for="projectinput2">@Html.DisplayFor(model => model.leftPD)</label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    @*Left eye div end*@
+
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Frame Name : </label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.frameName)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Lense Name :</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.lenseName)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2" style="font-weight: bold;color: black;">Remarks</label>
+                                                            <label for="projectinput2">@Html.DisplayFor(model => model.remarks)</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+                                    @*</div>*@
+
+                                    @*<div class="card-body" style="padding-top:0px">*@
+                                        <fieldset class="scheduler-border">
+                                            <legend class="scheduler-border">Payment's Details</legend>
+
+                                            <div class="row">
+                                                <div class="col-md-3" style="text-align: right;">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2" style="color: black;font-weight: bold;">Price : </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">@Html.DisplayFor(model => model.totalPayment)</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3" style="text-align: right;">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2" style="color: black;font-weight: bold;">GST(%) : </label>                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">@Html.DisplayFor(model => model.IGST)</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3" style="text-align: right;">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2" style="color: black;font-weight: bold;">Gross Amount : </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">                                                       
+                                                        <i class="fas fa-rupee-sign" style="font-size: 12px;color: black;"></i> <label for="projectinput2">@Html.DisplayFor(model => model.TotalPrice)</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    @*</div>*@
+                                @*</div>*@
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    @*<div class="text-center" id="DivBtn" style="margin-top: 2%;margin-bottom: 2%;display:none">
+                            <button type="submit" class="btn btn-primary" id="submit">Save</button>
+                            <button type="reset" class="btn btn-warning" id="cancelbtn">Cancel</button>
+                        </div>*@
+                </div>
+            </div>
+         
+
+        </div>
+
+    </div>
+</div>
