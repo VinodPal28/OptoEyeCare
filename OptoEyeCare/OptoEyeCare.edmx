@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OptoEyeCareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="addition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="additionValue" Type="varchar" MaxLength="100" />
+          <Property Name="flag" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="axis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="axisvalue" Type="varchar" MaxLength="100" />
+          <Property Name="flag" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CYL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CYL" Type="varchar" MaxLength="100" />
+          <Property Name="flag" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="email_configuration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+          <Property Name="type_display" Type="varchar" MaxLength="500" />
+          <Property Name="subject" Type="varchar" MaxLength="255" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="status" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="updatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="frame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="frameName" Type="varchar" MaxLength="100" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="flag" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="lenseDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lenseName" Type="varchar" MaxLength="100" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="flag" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="mst_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Email_Id" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="flag" Type="int" />
+        </EntityType>
+        <EntityType Name="SPH">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SPHValue" Type="varchar" MaxLength="100" />
+          <Property Name="flag" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblContactLenses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerId" Type="varchar" MaxLength="50" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="mobno" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="orderDate" Type="varchar" MaxLength="50" />
+          <Property Name="DeliveryDate" Type="varchar" MaxLength="50" />
+          <Property Name="DeliveredOn" Type="varchar" MaxLength="50" />
+          <Property Name="RefNo" Type="varchar" MaxLength="50" />
+          <Property Name="Examinedy" Type="varchar" MaxLength="50" />
+          <Property Name="rightDistanceSPH" Type="varchar" MaxLength="50" />
+          <Property Name="rightDistanceCYL" Type="varchar" MaxLength="50" />
+          <Property Name="rightDistanceAxis" Type="varchar" MaxLength="50" />
+          <Property Name="rightAddition" Type="varchar" MaxLength="50" />
+          <Property Name="rightPD" Type="varchar" MaxLength="50" />
+          <Property Name="leftDistanceSPH" Type="varchar" MaxLength="50" />
+          <Property Name="leftDistanceCYL" Type="varchar" MaxLength="50" />
+          <Property Name="leftDistanceAxis" Type="varchar" MaxLength="50" />
+          <Property Name="leftAddition" Type="varchar" MaxLength="50" />
+          <Property Name="leftPD" Type="varchar" MaxLength="50" />
+          <Property Name="totalPayment" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="advancedPayment" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BalancePayment" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="frame" Type="int" />
+          <Property Name="lenses" Type="int" />
+          <Property Name="remarks" Type="varchar" MaxLength="100" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="updatedBy" Type="int" />
+          <Property Name="updtedDate" Type="datetime" />
+          <Property Name="flag" Type="bit" />
+          <Property Name="entryType" Type="varchar" MaxLength="50" />
+          <Property Name="vision" Type="varchar" MaxLength="50" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CGST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SGST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IGST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="leftvision" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="vision">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="visionValue" Type="varchar" MaxLength="100" />
+          <Property Name="flag" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="OptoEyeCareModelStoreContainer">
+          <EntitySet Name="addition" EntityType="Self.addition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="axis" EntityType="Self.axis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CYL" EntityType="Self.CYL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="email_configuration" EntityType="Self.email_configuration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="frame" EntityType="Self.frame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lenseDetails" EntityType="Self.lenseDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mst_User" EntityType="Self.mst_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SPH" EntityType="Self.SPH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContactLenses" EntityType="Self.tblContactLenses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vision" EntityType="Self.vision" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OptoEyeCareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="mst_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="flag" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="OptoEyeCareEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="mst_User" EntityType="Self.mst_User" />
+          <EntitySet Name="tblContactLenses" EntityType="OptoEyeCareModel.tblContactLenses" />
+          <EntitySet Name="frame" EntityType="OptoEyeCareModel.frame" />
+          <EntitySet Name="lenseDetails" EntityType="OptoEyeCareModel.lenseDetails" />
+          <EntitySet Name="email_configuration" EntityType="OptoEyeCareModel.email_configuration" />
+          <EntitySet Name="CYL" EntityType="OptoEyeCareModel.CYL" />
+          <EntitySet Name="SPH" EntityType="OptoEyeCareModel.SPH" />
+          <EntitySet Name="axis" EntityType="OptoEyeCareModel.axis" />
+          <EntitySet Name="addition" EntityType="OptoEyeCareModel.addition" />
+          <EntitySet Name="vision" EntityType="OptoEyeCareModel.vision" />
+        </EntityContainer>
+        <EntityType Name="tblContactLenses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="orderDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveredOn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Examinedy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rightDistanceSPH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rightDistanceCYL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rightDistanceAxis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rightAddition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rightPD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="leftDistanceSPH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="leftDistanceCYL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="leftDistanceAxis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="leftAddition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="leftPD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="totalPayment" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="advancedPayment" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BalancePayment" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="frame" Type="Int32" />
+          <Property Name="lenses" Type="Int32" />
+          <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="Int32" />
+          <Property Name="updtedDate" Type="DateTime" Precision="3" />
+          <Property Name="flag" Type="Boolean" />
+          <Property Name="entryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vision" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CGST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SGST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IGST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="leftvision" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="frame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="frameName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="lenseDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lenseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="email_configuration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="type_display" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CYL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CYL1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SPH">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SPHValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="axis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="axisvalue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="addition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="additionValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vision">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="visionValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OptoEyeCareModelStoreContainer" CdmEntityContainer="OptoEyeCareEntities">
+          <EntitySetMapping Name="mst_User">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.mst_User">
+              <MappingFragment StoreEntitySet="mst_User">
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContactLenses">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.tblContactLenses">
+              <MappingFragment StoreEntitySet="tblContactLenses">
+                <ScalarProperty Name="leftvision" ColumnName="leftvision" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="vision" ColumnName="vision" />
+                <ScalarProperty Name="entryType" ColumnName="entryType" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="updtedDate" ColumnName="updtedDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="lenses" ColumnName="lenses" />
+                <ScalarProperty Name="frame" ColumnName="frame" />
+                <ScalarProperty Name="BalancePayment" ColumnName="BalancePayment" />
+                <ScalarProperty Name="advancedPayment" ColumnName="advancedPayment" />
+                <ScalarProperty Name="totalPayment" ColumnName="totalPayment" />
+                <ScalarProperty Name="leftPD" ColumnName="leftPD" />
+                <ScalarProperty Name="leftAddition" ColumnName="leftAddition" />
+                <ScalarProperty Name="leftDistanceAxis" ColumnName="leftDistanceAxis" />
+                <ScalarProperty Name="leftDistanceCYL" ColumnName="leftDistanceCYL" />
+                <ScalarProperty Name="leftDistanceSPH" ColumnName="leftDistanceSPH" />
+                <ScalarProperty Name="rightPD" ColumnName="rightPD" />
+                <ScalarProperty Name="rightAddition" ColumnName="rightAddition" />
+                <ScalarProperty Name="rightDistanceAxis" ColumnName="rightDistanceAxis" />
+                <ScalarProperty Name="rightDistanceCYL" ColumnName="rightDistanceCYL" />
+                <ScalarProperty Name="rightDistanceSPH" ColumnName="rightDistanceSPH" />
+                <ScalarProperty Name="Examinedy" ColumnName="Examinedy" />
+                <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+                <ScalarProperty Name="DeliveredOn" ColumnName="DeliveredOn" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobno" ColumnName="mobno" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="frame">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.frame">
+              <MappingFragment StoreEntitySet="frame">
+                <ScalarProperty Name="frameName" ColumnName="frameName" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lenseDetails">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.lenseDetails">
+              <MappingFragment StoreEntitySet="lenseDetails">
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="lenseName" ColumnName="lenseName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="email_configuration">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.email_configuration">
+              <MappingFragment StoreEntitySet="email_configuration">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="type_display" ColumnName="type_display" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CYL">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.CYL">
+              <MappingFragment StoreEntitySet="CYL">
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="CYL1" ColumnName="CYL" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPH">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.SPH">
+              <MappingFragment StoreEntitySet="SPH">
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="SPHValue" ColumnName="SPHValue" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="axis">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.axis">
+              <MappingFragment StoreEntitySet="axis">
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="axisvalue" ColumnName="axisvalue" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="addition">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.addition">
+              <MappingFragment StoreEntitySet="addition">
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="additionValue" ColumnName="additionValue" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vision">
+            <EntityTypeMapping TypeName="OptoEyeCareModel.vision">
+              <MappingFragment StoreEntitySet="vision">
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="visionValue" ColumnName="visionValue" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

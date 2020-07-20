@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "RegistrationDetails";
+}
+@section renderName
+{
+    <h5 style="color:black">Registration Details</h5>
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Assets/js/registrationApproval.js"></script>
+
+</head>
+<body>
+    <div id="coverScreen" class="LockOn" style="display:none">
+    </div>
+
+    <div class="app-content content contentStyle">
+        <div class="content-wrapper">
+          
+            <div class="content-body">
+                <!-- Active Orders -->
+                <div class="row">
+                    <div class="col-md-12">                       
+
+                        <div class="card" style="margin-top: 14px;">
+                            <div class="card-body">
+                                <div class="form-body">
+                                    <div class="row">
+
+                                        <div class="table-responsive">
+                                            <table class="table" id="tabledata" style="border-bottom: 1px solid;">
+                                                <thead style="background-color: #4b70dc;color: white;">
+                                                    <tr>
+                                                        <th>Sr. No</th>
+                                                        <th>User Name</th>
+                                                        <th>Email ID</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="font-size: 12px;">
+                                                    @foreach (var item in ViewBag.Data)
+                                                    {
+                                                        <tr>
+                                                            <td class="id">
+                                                                <span>@item.Id</span>
+                                                            </td>
+                                                            <td class="UserName">
+                                                                <span> @item.UserName </span>                                                               
+                                                            </td>
+                                                            <td class="Email_Id">
+                                                                <span> @item.Email_Id </span>
+                                                            </td>
+
+                                                            <td>                                                             
+                                                                <a class="Approve" href="javascript:;"><img src="~/Assets/img/Approve.png" style="height: 26px;" /> </a>&nbsp;&nbsp;                                                                                                                                
+                                                                <a class="Disapprove" href="javascript:;"><img src="~/Assets/img/Disapprove.png" style="height: 26px;" /></a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
