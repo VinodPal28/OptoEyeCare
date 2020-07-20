@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OptoEyeCareModelStoreContainer" CdmEntityContainer="OptoEyeCareEntities">
+    <EntitySetMapping Name="mst_User">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.mst_User">
+        <MappingFragment StoreEntitySet="mst_User">
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblContactLenses">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.tblContactLenses">
+        <MappingFragment StoreEntitySet="tblContactLenses">
+          <ScalarProperty Name="leftvision" ColumnName="leftvision" />
+          <ScalarProperty Name="IGST" ColumnName="IGST" />
+          <ScalarProperty Name="SGST" ColumnName="SGST" />
+          <ScalarProperty Name="CGST" ColumnName="CGST" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="vision" ColumnName="vision" />
+          <ScalarProperty Name="entryType" ColumnName="entryType" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="updtedDate" ColumnName="updtedDate" />
+          <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="lenses" ColumnName="lenses" />
+          <ScalarProperty Name="frame" ColumnName="frame" />
+          <ScalarProperty Name="BalancePayment" ColumnName="BalancePayment" />
+          <ScalarProperty Name="advancedPayment" ColumnName="advancedPayment" />
+          <ScalarProperty Name="totalPayment" ColumnName="totalPayment" />
+          <ScalarProperty Name="leftPD" ColumnName="leftPD" />
+          <ScalarProperty Name="leftAddition" ColumnName="leftAddition" />
+          <ScalarProperty Name="leftDistanceAxis" ColumnName="leftDistanceAxis" />
+          <ScalarProperty Name="leftDistanceCYL" ColumnName="leftDistanceCYL" />
+          <ScalarProperty Name="leftDistanceSPH" ColumnName="leftDistanceSPH" />
+          <ScalarProperty Name="rightPD" ColumnName="rightPD" />
+          <ScalarProperty Name="rightAddition" ColumnName="rightAddition" />
+          <ScalarProperty Name="rightDistanceAxis" ColumnName="rightDistanceAxis" />
+          <ScalarProperty Name="rightDistanceCYL" ColumnName="rightDistanceCYL" />
+          <ScalarProperty Name="rightDistanceSPH" ColumnName="rightDistanceSPH" />
+          <ScalarProperty Name="Examinedy" ColumnName="Examinedy" />
+          <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+          <ScalarProperty Name="DeliveredOn" ColumnName="DeliveredOn" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobno" ColumnName="mobno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="frame">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.frame">
+        <MappingFragment StoreEntitySet="frame">
+          <ScalarProperty Name="frameName" ColumnName="frameName" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lenseDetails">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.lenseDetails">
+        <MappingFragment StoreEntitySet="lenseDetails">
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="lenseName" ColumnName="lenseName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="email_configuration">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.email_configuration">
+        <MappingFragment StoreEntitySet="email_configuration">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="body" ColumnName="body" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="type_display" ColumnName="type_display" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CYL">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.CYL">
+        <MappingFragment StoreEntitySet="CYL">
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="CYL1" ColumnName="CYL" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPH">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.SPH">
+        <MappingFragment StoreEntitySet="SPH">
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="SPHValue" ColumnName="SPHValue" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="axis">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.axis">
+        <MappingFragment StoreEntitySet="axis">
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="axisvalue" ColumnName="axisvalue" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="addition">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.addition">
+        <MappingFragment StoreEntitySet="addition">
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="additionValue" ColumnName="additionValue" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vision">
+      <EntityTypeMapping TypeName="OptoEyeCareModel.vision">
+        <MappingFragment StoreEntitySet="vision">
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="visionValue" ColumnName="visionValue" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

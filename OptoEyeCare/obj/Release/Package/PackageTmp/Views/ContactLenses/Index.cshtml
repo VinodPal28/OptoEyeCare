@@ -1,0 +1,629 @@
+﻿
+@{
+    ViewBag.Title = "Order Entry";
+}
+@section renderName
+{
+    <h5 style="color:black">Order Entry</h5>
+}
+<head>   
+    <script src="~/Assets/js/ContactLenses.js"></script>
+    <style>
+        fieldset.scheduler-border {
+            border: 1px groove #dddddd7d !important;
+            padding: 0 1.4em 1.4em 1.4em !important;
+            margin: 0 0 1.5em 0 !important;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
+            border-radius: .35rem;
+        }
+
+        legend.scheduler-border {
+            font-size: 0.80em !important;
+            font-weight: bold !important;
+            text-align: left !important;
+            width: inherit; /* Or auto */
+            padding: 0 10px; /* To give a bit of padding on the left and right */
+            border-bottom: none;
+        }
+       .switch {
+          position: relative;
+          display: inline-block;
+          width: 44px;
+          height: 20px;
+        }
+
+        .switch input { 
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 12px;
+          width: 12px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        input:checked + .slider {
+          background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+          border-radius: 34px;
+        }
+
+        .slider.round:before {
+          border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="coverScreen" class="LockOn" style="display:none">
+    </div>
+    <div>
+        <div class="app-content content contentStyle">
+            <div class="content-wrapper">
+                <div class="content-header row" style="margin-left: 38%;">
+                    <span id="errorMsg"></span>
+                </div>
+                <div class="content-body">
+                    <!-- Active Orders -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <fieldset class="scheduler-border">
+                                        <legend class="scheduler-border">Personal Information</legend>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Customer ID : </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label id="customerId" for="projectinput2" style="margin-left: -91px;font-weight: bold;"></label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Title<span style="color: red" class="starRed">*</span></label>
+                                                        <select class="form-control input" id="title">
+                                                            <option value="0">Select</option>
+                                                            <option value="1">Mr</option>
+                                                            <option value="3">Mrs</option>
+                                                            <option value="2">Miss</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Name<span style="color: red" class="starRed">*</span></label>
+                                                        <input type="text" id="name" class="form-control input" maxlength="50" autocomplete="off" placeholder="name" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Mobile No.<span style="color: red" class="starRed">*</span></label>
+                                                        <input type="text" id="mobNo" class="form-control input Numeric" maxlength="10" autocomplete="off" placeholder="mobile no" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Email Address<span style="color: red" class="starRed">*</span></label>
+                                                        <input type="text" id="email" class="form-control input" autocomplete="off" placeholder="email address" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Address<span style="color: red" class="starRed">*</span></label>
+                                                        <input type="text" id="address" class="form-control input" autocomplete="off" placeholder="address" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="container" style="margin-top: 8px;">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="button" id="contactLense" class="btn btn-primary" style="font-size: 12px;" value="New Order Entry for Contact Lenses" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="button" id="spect" class="btn btn-primary" style="font-size: 12px;" value="New Order Entry for Spectacles" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card" id="DivLense" style="margin-top: 14px;display:none">
+                                <div class="card-body">
+                                    <fieldset class="scheduler-border">
+                                        <legend class="scheduler-border"><span id="divHeader"></span></legend>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Order Date<span style="color: red" class="starRed">*</span></label>
+                                                        <input type="text" id="OrderDate" class="form-control input" autocomplete="off" placeholder="dd-mm-yyyy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Delivery Date<span style="color: red" class="starRed">*</span></label>
+                                                        <input type="text" id="DeliveryDate" class="form-control input" autocomplete="off" placeholder="dd-mm-yyyy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Delivered On<span style="color: red" class="starRed">*</span></label>
+                                                        <input type="text" id="DeliveredOn" class="form-control input" autocomplete="off" placeholder="dd-mm-yyyy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Ref No.</label>
+                                                        <input type="text" id="RefNo" class="form-control input" autocomplete="off" placeholder="Ref by">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Examined By</label>
+                                                        <input type="text" id="ExaminedBy" class="form-control input" autocomplete="off" placeholder="examined by">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row">
+                                                @*Right eye div start*@
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="card bg-light mb-3">
+
+                                                            <div class="row" style="margin: 0px !important;margin-bottom: -19px !important;margin-top: 7px !important;">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2" style="color:black;font-weight:bold">Right Eye</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">SPH</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">CYL</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Axis</label>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row" style="margin: 0px !important;margin-bottom: -15px !important">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Distance</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="rightSPH" class="form-control input" autocomplete="off" placeholder="SPH">*@
+                                                                        <select id="rightSPH" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.sphList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="rightCYL" class="form-control input" autocomplete="off" placeholder="CYL">*@
+                                                                        <select id="rightCYL" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.cylList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="rightAxis" class="form-control input" autocomplete="off" placeholder="Axis">*@
+                                                                        <select id="rightAxis" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.axisList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row" style="margin: 0px !important;">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Addition</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="rightAddition" class="form-control input" autocomplete="off" placeholder="Addition">*@
+                                                                        <select id="rightAddition" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.aditionList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3" style="text-align: right;">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Vision</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="rightVision" class="form-control input" autocomplete="off" placeholder="PD">*@
+                                                                        <select id="rightVision" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.visionList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @*Right eye div end*@
+
+                                                @*============================================================================================================*@
+                                                @*Left eye div start*@
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="card bg-light mb-3">
+
+                                                            <div class="row" style="margin: 0px !important;margin-bottom: -19px !important;margin-top: 7px !important;">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2" style="color:black;font-weight:bold">Left Eye</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">SPH</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">CYL</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Axis</label>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row" style="margin: 0px !important;margin-bottom: -15px !important">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Distance</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="leftSPH" class="form-control input" autocomplete="off" placeholder="SPH">*@
+                                                                        <select id="leftSPH" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.sphList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="leftCYL" class="form-control input" autocomplete="off" placeholder="CYL">*@
+                                                                        <select id="leftCYL" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.cylList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="leftAxis" class="form-control input" autocomplete="off" placeholder="Axis">*@
+                                                                        <select id="leftAxis" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.axisList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row" style="margin: 0px !important;">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Addition</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="leftAddition" class="form-control input" autocomplete="off" placeholder="Addition">*@
+                                                                        <select id="leftAddition" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.aditionList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3" style="text-align: right;">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Vision</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        @*<input type="text" id="leftPD" class="form-control input" autocomplete="off" placeholder="PD">*@
+                                                                        <select id="leftVision" class="form-control input">
+                                                                            @{
+                                                                                foreach (var item in ViewBag.visionList)
+                                                                                {
+                                                                                    <option value="@item.Value">@item.Text</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                @*Left eye div end*@
+
+                                                @*payment div start*@
+                                                @*<div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="card bg-light mb-3">
+
+                                                            <div class="row" style="margin: 0px !important;margin-bottom: -19px !important;margin-top: 7px !important;">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2" style="color:black;font-weight:bold">Payment</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" style="margin: 0px !important;margin-bottom: -15px !important">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Total</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="totalPayment" class="form-control input" autocomplete="off" placeholder="Total">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Advanced</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="advancedPayment" class="form-control input" autocomplete="off" placeholder="Advanced" />
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row" style="margin: 0px !important;">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="projectinput2">Balance</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="balancePayment" class="form-control input" autocomplete="off" placeholder="Balance" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>*@
+                                                @*payment div end*@
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Frame</label>
+
+                                                        <select id="frame" class="form-control input">
+                                                            @{
+                                                                foreach (var item in ViewBag.frameList)
+                                                                {
+                                                                    <option value="@item.Value">
+                                                                        @item.Text
+                                                                    </option>
+                                                                }
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Lenses</label>
+                                                        <select id="lenses" class="form-control input">
+                                                            @{
+                                                                foreach (var item in ViewBag.lenseList)
+                                                                {
+                                                                    <option value="@item.Value">
+                                                                        @item.Text
+                                                                    </option>
+                                                                }
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">Remarks</label>
+                                                        <input type="text" id="remarks" class="form-control input" autocomplete="off" placeholder="Remarks" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="card-body" style="padding-top:0px">
+                                    <fieldset class="scheduler-border">
+                                        <legend class="scheduler-border">Payment's Details</legend>
+
+                                        <div class="row">
+                                            <div class="col-md-3" style="text-align: right;">
+                                                <div class="form-group">
+                                                    <label for="projectinput2" style="color: black;font-weight: bold;">Price<span style="color: red" class="starRed">*</span> : </label>                                                
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <input type="text" id="totalPayment" class="form-control input" autocomplete="off" placeholder="Price" >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3" style="text-align: right;">
+                                                <div class="form-group">
+                                                    <label for="projectinput2" style="color: black;font-weight: bold;">GST(%) : </label>                                                 
+                                                    <label class="switch">
+                                                        <input type="checkbox" class="switch5"/>
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <input type="text" id="gst" class="form-control input" autocomplete="off" style="display:none" placeholder="GST" >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3" style="text-align: right;">
+                                                <div class="form-group">
+                                                    <label for="projectinput2" style="color: black;font-weight: bold;">Gross Amount : </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    @*<input type="text" id="grossAmount" class="form-control input" autocomplete="off" placeholder="Gross Amount">*@
+                                                    <i class="fas fa-rupee-sign" style="font-size: 12px;color: black;"></i> <label id="grossAmount" style="color: black;font-weight: bold;">0.00</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="text-center" id="DivBtn" style="margin-top: 2%;margin-bottom: 2%;display:none">
+                    <button type="submit" class="btn btn-primary" id="submit">Save</button>
+                    <button type="reset" class="btn btn-warning" id="cancelbtn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
